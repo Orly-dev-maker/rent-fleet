@@ -1,0 +1,62 @@
+{
+  "name": "rentfleet",
+  "version": "1.0.3",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "postinstall": "prisma generate",
+    "db:setup": "prisma migrate deploy",
+    "db:seed": "tsx prisma/seed.ts",
+    "db:studio": "prisma studio",
+    "typecheck": "tsc --noEmit",
+    "vercel-build": "prisma generate && ([ \"$VERCEL_ENV\" = \"preview\" ] || prisma migrate deploy) && next build",
+    "update:check": "npm outdated || true"
+  },
+  "dependencies": {
+    "@next-auth/prisma-adapter": "^1.0.7",
+    "@prisma/adapter-pg": "^6.19.3",
+    "@prisma/client": "^6.19.3",
+    "@react-three/drei": "^10.0.0",
+    "@react-three/fiber": "^9.0.0",
+    "@stripe/react-stripe-js": "^3.0.0",
+    "@stripe/stripe-js": "^7.0.0",
+    "next": "15.5.28",
+    "next-auth": "^4.24.15",
+    "nodemailer": "^10.0.0",
+    "pg": "^8.23.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "stripe": "^23.0.0",
+    "three": "^0.160.0",
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/nodemailer": "^7.0.0",
+    "@types/pg": "^8.23.1",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@types/three": "^0.160.0",
+    "eslint": "^8",
+    "eslint-config-next": "15.5.28",
+    "postcss": "^8.5.24",
+    "prisma": "^6.19.3",
+    "tailwindcss": "^3.4.1",
+    "tsx": "^4.23.15",
+    "typescript": "^5"
+  },
+  "description": "White-label car rental platform: Next.js 15, Prisma, PostgreSQL, NextAuth, Stripe, admin back-office.",
+  "license": "SEE LICENSE IN LICENSE",
+  "licenseSummary": "Proprietary, non-redistributable, single buyer license",
+  "author": "RentFleet Team",
+  "engines": {
+    "node": "20.x"
+  },
+  "overrides": {
+    "nodemailer": "$nodemailer",
+    "postcss": "$postcss"
+  }
+}
